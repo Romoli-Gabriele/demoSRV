@@ -8,6 +8,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        ServerSrv server1 = new ServerSrv();
+        server1.attendi();
+        server1.comunica();
     }
 }
