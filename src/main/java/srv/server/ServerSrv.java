@@ -1,5 +1,6 @@
 package srv.server;
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -16,7 +17,8 @@ public class ServerSrv{
     }
     public Socket attendi(){
         try {
-            System.out.println("Server partito in esecuzione...");
+            String ind = InetAddress.getLocalHost().getHostAddress();
+            System.out.println("Server partito in esecuzione..."+ind);
             server = new ServerSocket(6789);
             client = server.accept();
             server.close();
