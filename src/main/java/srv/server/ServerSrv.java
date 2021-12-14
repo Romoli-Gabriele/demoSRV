@@ -15,7 +15,7 @@ public class ServerSrv{
     public ServerSrv(){
         
     }
-    public Socket attendi(){
+    public Socket attendi(){//NON SI TOCCA
         try {
             String ind = InetAddress.getLocalHost().getHostAddress();
             System.out.println("Server partito in esecuzione..."+ind);
@@ -34,15 +34,16 @@ public class ServerSrv{
     public void comunica() {
         try{
         System.out.println("3 Benvenuto client, scrivi la frase da trasformare in maiuscolo. Attendo...");
-        StringRV = inDalClient.readLine();
+        StringRV = inDalClient.readLine();//--Leggi linea inviata dal client 
         System.out.println("6 ricevuta la stringa dal CLI:"+StringRV);
-        StringMD = StringRV.toUpperCase();
-        System.out.println("7 Invio stringa modificata al CLI...");
-        outVersoClient.writeBytes(StringMD+'\n');
-        System.out.println("9 Server: elaborazione terminata ...");
-        client.close();
-        }catch(Exception e){
 
+        //Fare modifiche richieste dal server ///////////..........
+        System.out.println("7 Invio stringa modificata al CLI...");
+        outVersoClient.writeBytes(StringMD+'\n');//rispondi al client
+        System.out.println("9 Server: elaborazione terminata ...");
+        client.close();//chiudi trasmissione
+        }catch(Exception e){
+            
         }
     }
 }
